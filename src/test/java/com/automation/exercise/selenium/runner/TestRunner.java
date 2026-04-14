@@ -1,7 +1,7 @@
-package com.automation.exercise.runner;
+package com.automation.exercise.selenium.runner;
 
 import com.automation.exercise.driver.DriverManager;
-import com.automation.exercise.pages.home.HomePage;
+import com.automation.exercise.pages.selenium.home.HomePage;
 import com.automation.exercise.utils.TestValueProvider;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;

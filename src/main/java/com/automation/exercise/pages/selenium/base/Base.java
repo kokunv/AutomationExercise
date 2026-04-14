@@ -1,4 +1,4 @@
-package com.automation.exercise.pages.base;
+package com.automation.exercise.pages.selenium.base;
 
 import lombok.Getter;
 import org.apache.logging.log4j.LogManager;

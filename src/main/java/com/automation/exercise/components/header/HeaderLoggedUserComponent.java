@@ -1,8 +1,8 @@
 package com.automation.exercise.components.header;
 
 import com.automation.exercise.components.baseComponent.BaseComponent;
-import com.automation.exercise.pages.account.DeletedAccountPage;
-import com.automation.exercise.pages.home.HomePage;
+import com.automation.exercise.pages.selenium.account.DeletedAccountPage;
+import com.automation.exercise.pages.selenium.home.HomePage;
 import lombok.Getter;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;

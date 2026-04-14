@@ -120,7 +120,17 @@ public class TestValueProvider {
         return getProperty("user.valid.year");
     }
 
+    public String getSelenideBrowser() {
+        return getProperty("selenide.browser");
+    }
 
+    public String getSelenideTimeout() {
+        return getProperty("selenide.timeout");
+    }
+
+    public String getSelenideUrl() {
+        return getProperty("selenide.url");
+    }
 
 }
 

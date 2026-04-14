@@ -1,8 +1,8 @@
-package com.automation.exercise.pages.login_signup;
+package com.automation.exercise.pages.selenium.login_signup;
 
 import com.automation.exercise.data.signup.ISignUp;
-import com.automation.exercise.pages.account.CreatedAccountPage;
-import com.automation.exercise.pages.base.BasePage;
+import com.automation.exercise.pages.selenium.account.CreatedAccountPage;
+import com.automation.exercise.pages.selenium.base.BasePage;
 import lombok.Getter;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;

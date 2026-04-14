@@ -1,6 +1,6 @@
-package com.automation.exercise.pages.cart;
+package com.automation.exercise.pages.selenium.cart;
 
-import com.automation.exercise.pages.base.BasePage;
+import com.automation.exercise.pages.selenium.base.BasePage;
 import org.openqa.selenium.WebDriver;
 
 public class CartPage extends BasePage {

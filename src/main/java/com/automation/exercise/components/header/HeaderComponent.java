@@ -2,11 +2,11 @@ package com.automation.exercise.components.header;
 
 import com.automation.exercise.components.baseComponent.BaseComponent;
 
-import com.automation.exercise.pages.cart.CartPage;
-import com.automation.exercise.pages.contactus.ContactUsPage;
-import com.automation.exercise.pages.home.HomePage;
-import com.automation.exercise.pages.login_signup.LoginPage;
-import com.automation.exercise.pages.products.ProductsPage;
+import com.automation.exercise.pages.selenium.cart.CartPage;
+import com.automation.exercise.pages.selenium.contactus.ContactUsPage;
+import com.automation.exercise.pages.selenium.home.HomePage;
+import com.automation.exercise.pages.selenium.login_signup.LoginPage;
+import com.automation.exercise.pages.selenium.products.ProductsPage;
 import lombok.Getter;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;

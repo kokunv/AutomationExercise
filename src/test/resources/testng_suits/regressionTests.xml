@@ -13,8 +13,8 @@
         </groups>
 
         <classes>
-            <class name="com.automation.exercise.tests.LoginTest"/>
-            <class name="com.automation.exercise.tests.SignUpTest"/>
+            <class name="com.automation.exercise.selenium.tests.LoginTest"/>
+            <class name="com.automation.exercise.selenium.tests.SignUpTest"/>
         </classes>
 
     </test>

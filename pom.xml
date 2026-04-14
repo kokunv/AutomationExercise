@@ -14,6 +14,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <testng.version>7.10.2</testng.version>
         <selenium.version>4.21.0</selenium.version>
+        <selenide.version>7.16.0</selenide.version>
         <webdrivermanager.version>5.6.3</webdrivermanager.version>
         <lombok.version>1.18.36</lombok.version>
         <maven.surefire.version>3.2.2</maven.surefire.version>
@@ -37,6 +38,14 @@
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
             <version>${selenium.version}</version>
+        </dependency>
+
+        <!-- Selenide -->
+
+        <dependency>
+            <groupId>com.codeborne</groupId>
+            <artifactId>selenide</artifactId>
+            <version>${selenide.version}</version>
         </dependency>
 
         <!-- WebDriver Manager  -->
@@ -120,6 +129,10 @@
                 <version>${maven.surefire.version}</version>
 
                 <configuration>
+                    <suiteXmlFiles>
+                        <!--suppress UnresolvedMavenProperty -->
+                        <suiteXmlFile>${suite.file}</suiteXmlFile>
+                    </suiteXmlFiles>
                     <argLine>
                         -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
                     </argLine>
@@ -163,6 +176,27 @@
             <properties>
                 <env>dev</env>
                 <browser.name>firefox</browser.name>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>smoke</id>
+            <properties>
+                <suite.file>src/test/resources/testng_suits/smokeTests.xml</suite.file>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>regression</id>
+            <properties>
+                <suite.file>src/test/resources/testng_suits/regressionTests.xml</suite.file>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>all</id>
+            <properties>
+                <suite.file>src/test/resources/testng_suits/allTests.xml</suite.file>
             </properties>
         </profile>
     </profiles>

@@ -1,6 +1,6 @@
-package com.automation.exercise.pages.home;
+package com.automation.exercise.pages.selenium.home;
 
-import com.automation.exercise.pages.base.BasePage;
+import com.automation.exercise.pages.selenium.base.BasePage;
 import lombok.Getter;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;

@@ -1,4 +1,4 @@
-package com.automation.exercise.pages.base;
+package com.automation.exercise.pages.selenium.base;
 
 import com.automation.exercise.components.footer.FooterComponent;
 import com.automation.exercise.components.header.HeaderComponent;
