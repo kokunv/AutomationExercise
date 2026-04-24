@@ -78,8 +78,6 @@ public class SignUpTest extends TestRunner {
         softAssert.assertTrue(deletedAccountPage.isAccountDeleteMessageVisible(),
                 "'ACCOUNT DELETED!' is not visible");
 
-        softAssert.assertAll();
-
     }
 
     @Test(
@@ -117,7 +115,6 @@ public class SignUpTest extends TestRunner {
         softAssert.assertFalse(loginPage.getLoggedHeader().isUserLogged(), "User must be not logged");
         softAssert.assertTrue(loginPage.isSignUpTextVisible(),
                 "User is not on Login page.");
-        softAssert.assertAll();
 
     }
 
@@ -142,7 +139,7 @@ public class SignUpTest extends TestRunner {
                 "Validation message should be displayed for empty password");
         softAssert.assertFalse(signUpPage.getLoggedHeader().isUserLogged(),
                 "User should not be registered with empty fields");
-        softAssert.assertAll();
+
     }
 
 

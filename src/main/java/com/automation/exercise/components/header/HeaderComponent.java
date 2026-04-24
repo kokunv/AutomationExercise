@@ -40,31 +40,31 @@ public class HeaderComponent extends BaseComponent {
 
     public HomePage goToHomePage() {
         logger.info("Clicking on home link in header");
-        waitAndClickOnElement(homeLink);
+        wait.waitAndClickOnElement(homeLink);
         return new HomePage(driver);
     }
 
     public ProductsPage goToProductsPage() {
         logger.info("Clicking on products link in header");
-        waitAndClickOnElement(productsLink);
+        wait.waitAndClickOnElement(productsLink);
         return new ProductsPage(driver);
     }
 
     public CartPage goToCartPage() {
         logger.info("Clicking on cart link in header");
-        waitAndClickOnElement(cartLink);
+        wait.waitAndClickOnElement(cartLink);
         return new CartPage(driver);
     }
 
     public LoginPage goToLoginPage() {
         logger.info("Clicking on login link in header");
-        waitAndClickOnElement(loginLink);
+        wait.waitAndClickOnElement(loginLink);
         return new LoginPage(driver);
     }
 
     public ContactUsPage goToContactUsPage() {
         logger.info("Clicking on contact us link in header");
-        waitAndClickOnElement(contactUsLink);
+        wait.waitAndClickOnElement(contactUsLink);
         return new ContactUsPage(driver);
     }
 

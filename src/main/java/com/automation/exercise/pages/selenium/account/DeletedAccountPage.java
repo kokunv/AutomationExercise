@@ -20,7 +20,7 @@ public class DeletedAccountPage extends BasePage {
     public boolean isAccountDeleteMessageVisible(){
         logger.info("Verifying if 'Account Deleted' message is displayed");
         try {
-            waitUntilElementIsVisible(accountDeletedMessage);
+            wait.waitUntilElementIsVisible(accountDeletedMessage);
             boolean isDisplayed = accountDeletedMessage.isDisplayed();
             logger.info("Account deleted status: {}", isDisplayed);
             return isDisplayed;

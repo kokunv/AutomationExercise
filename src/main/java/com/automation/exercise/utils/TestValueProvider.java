@@ -12,23 +12,28 @@ public class TestValueProvider {
     private static volatile TestValueProvider instance;
     Properties properties;
     protected final Logger logger = LogManager.getLogger(this.getClass());
+    private static final String PATH_TO_DATA_PROPERTIES = "src/test/resources/data/data.properties";
+
 
     private TestValueProvider() {
-
-        String env = System.getProperty("env", "qa");
-
-        String fileName = String.format("src/test/resources/config/%s.properties", env);
-        logger.info("Loading properties for environment: {}", env);
         properties = new Properties();
 
-        try (
-                FileInputStream fileInputStream = new FileInputStream(fileName)) {
-            properties.load(fileInputStream);
-            logger.info("Successfully loaded properties from: {}", fileName);
-        } catch (IOException err) {
-            logger.error("Failed to read properties file: {}. Falling back to system variables.", fileName);
-            throw new RuntimeException("File can't read data properties " + err.getMessage());
-        }
+        loadProperties(PATH_TO_DATA_PROPERTIES);
+
+        String env = System.getProperty("env", "qa");
+        logger.info("Loading properties for environment: {}", env);
+        String fileName = String.format("src/test/resources/config/%s.properties", env);
+        loadProperties(fileName);
+    }
+
+    private void loadProperties(String path){
+
+       try(FileInputStream fileInputStream = new FileInputStream(path)){
+           properties.load(fileInputStream);
+       } catch (IOException e) {
+           logger.error("Failed to read properties file: {}. Falling back to system variables.", path);
+           throw new RuntimeException("File can't read data properties ",e);
+       }
     }
 
     public static TestValueProvider get(){

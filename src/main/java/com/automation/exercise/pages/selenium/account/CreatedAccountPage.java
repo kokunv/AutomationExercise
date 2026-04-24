@@ -27,7 +27,7 @@ public class CreatedAccountPage extends BasePage {
         return isVisible;
     }
     public HomePage continueToHomePage(){
-        clickDynamicElement(continueButton);
+        actions.clickDynamicElement(continueButton);
         return new HomePage(driver);
     }
 }

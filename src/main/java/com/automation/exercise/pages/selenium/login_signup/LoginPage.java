@@ -64,28 +64,28 @@ public class LoginPage extends BasePage {
 
     public void inputEmailInLogin(String email) {
         logger.info("Action: Entering login email: {}", email);
-        waitAndClickOnElement(emailLoginInput);
+        wait.waitAndClickOnElement(emailLoginInput);
         emailLoginInput.clear();
         emailLoginInput.sendKeys(email);
     }
 
     public void inputPasswordInLogin(String password) {
         logger.info("Action: Entering login password");
-        waitAndClickOnElement(passwordLoginInput);
+        wait.waitAndClickOnElement(passwordLoginInput);
         passwordLoginInput.clear();
         passwordLoginInput.sendKeys(password);
     }
 
     public void inputNameInSignUp(String name) {
         logger.info("Action: Entering signup name: {}", name);
-        waitAndClickOnElement(nameSignUpInput);
+        wait.waitAndClickOnElement(nameSignUpInput);
         nameSignUpInput.clear();
         nameSignUpInput.sendKeys(name);
     }
 
     public void inputEmailInSignUp(String email) {
         logger.info("Action: Entering signup email: {}", email);
-        waitAndClickOnElement(emailSignUpInput);
+        wait.waitAndClickOnElement(emailSignUpInput);
         emailSignUpInput.clear();
         emailSignUpInput.sendKeys(email);
     }
@@ -94,7 +94,7 @@ public class LoginPage extends BasePage {
         logger.info("Attempting SignUp with incorrect data: Name={}, Email={}", name, email);
         inputNameInSignUp(name);
         inputEmailInSignUp(email);
-        waitAndClickOnElement(signUpButton);
+        wait.waitAndClickOnElement(signUpButton);
 
         return this;
     }
@@ -103,7 +103,8 @@ public class LoginPage extends BasePage {
         logger.info("Attempting Login with incorrect data for email: {}", email);
         inputEmailInLogin(email);
         inputPasswordInLogin(password);
-        waitAndClickOnElement(loginButton);
+        wait.waitAndClickOnElement(loginButton);
+
         return this;
     }
 
@@ -111,7 +112,7 @@ public class LoginPage extends BasePage {
         logger.info("Starting SignUp process for user: {} ({})", name, email);
         inputNameInSignUp(name);
         inputEmailInSignUp(email);
-        waitAndClickOnElement(signUpButton);
+        wait.waitAndClickOnElement(signUpButton);
 
         return new SignUpPage(driver);
     }
@@ -120,8 +121,7 @@ public class LoginPage extends BasePage {
         logger.info("Performing Login for user: {}", email);
         inputEmailInLogin(email);
         inputPasswordInLogin(password);
-        runWithImplicitWait(Duration.ofSeconds(4), () -> loginButton.click());
-
+        wait.runWithImplicitWait(Duration.ofSeconds(4), () -> loginButton.click());
 
         return new HomePage(driver);
     }

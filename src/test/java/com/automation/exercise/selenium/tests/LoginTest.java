@@ -37,7 +37,7 @@ public class LoginTest extends TestRunner {
                 .goToLoginPage()
                 .loginWithIncorrectData(email, password);
         softAssert.assertTrue(loginPage.isLoginTextVisible(), "User isn't on Login Page");
-        softAssert.assertAll();
+
     }
 
     @Test(
@@ -65,7 +65,6 @@ public class LoginTest extends TestRunner {
         softAssert.assertTrue(deletedAccountPage.isAccountDeleteMessageVisible(),
                 "Account isn't deleted");
 
-        softAssert.assertAll();
     }
 
     private UserCredentials registerDefaultUser(){

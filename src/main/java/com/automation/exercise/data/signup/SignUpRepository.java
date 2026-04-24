@@ -29,35 +29,35 @@ public class SignUpRepository {
         logger.info("Build valid user.");
         TestValueProvider provider = TestValueProvider.get();
 
-        return SignUp.get()
-                .setPassword(provider.getUserPassword())
-                .setFirstName(provider.getUserFirstName())
-                .setLastName(provider.getUserLastName())
-                .setAddress1(provider.getUserAddress())
-                .setCountry(provider.getUserCountry())
-                .setState(provider.getUserState())
-                .setCity(provider.getUserCity())
-                .setZipcode(provider.getUserZipcode())
-                .setMobileNumber(provider.getUserMobile())
-                .setGender(Gender.Mr)
-                .setDay(provider.getUserDay())
-                .setMonth(provider.getUserMonth())
-                .setYear(provider.getUserYear())
+        return SignUp.builder()
+                .password(provider.getUserPassword())
+                .firstName(provider.getUserFirstName())
+                .lastName(provider.getUserLastName())
+                .address1(provider.getUserAddress())
+                .country(provider.getUserCountry())
+                .state(provider.getUserState())
+                .city(provider.getUserCity())
+                .zipCode(provider.getUserZipcode())
+                .mobile(provider.getUserMobile())
+                .gender(Gender.Mr)
+                .day(provider.getUserDay())
+                .month(provider.getUserMonth())
+                .year(provider.getUserYear())
                 .build();
     }
 
     public ISignUp userWithEmptyField() {
         logger.info("Build user with empty field.");
-        return SignUp.get()
-                .setPassword("")
-                .setFirstName("")
-                .setLastName("")
-                .setAddress1("")
-                .setCountry(null)
-                .setState("")
-                .setCity("")
-                .setZipcode("")
-                .setMobileNumber("")
+        return SignUp.builder()
+                .password("")
+                .firstName("")
+                .lastName("")
+                .address1("")
+                .country(null)
+                .state("")
+                .city("")
+                .zipCode("")
+                .mobile("")
                 .build();
     }
 }

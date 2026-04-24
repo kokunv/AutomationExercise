@@ -10,6 +10,7 @@ import static com.codeborne.selenide.Selenide.closeWebDriver;
 public class BaseSelenideTest {
 
     protected LoginPageSelenide loginPage;
+
     @BeforeMethod
     public void setup(){
         loginPage = new LoginPageSelenide();

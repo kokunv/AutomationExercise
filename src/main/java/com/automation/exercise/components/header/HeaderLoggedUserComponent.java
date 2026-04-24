@@ -26,12 +26,12 @@ public class HeaderLoggedUserComponent extends BaseComponent {
 
     public DeletedAccountPage deleteAccount(){
         logger.info("Action: delete account.");
-        clickDynamicElement(deleteAccountButton);
+        actions.clickDynamicElement(deleteAccountButton);
         return new DeletedAccountPage(driver);
     }
 
     public boolean isUserLoggedName(String name){
-        waitUntilElementIsVisible(nameLoggedUser);
+        wait.waitUntilElementIsVisible(nameLoggedUser);
         String loggedName = nameLoggedUser.getText().trim();
         logger.info("Verifying logged-in username. Expected: '{}', Actual: '{}'", name, loggedName);
         return name.equals(loggedName);
@@ -51,7 +51,7 @@ public class HeaderLoggedUserComponent extends BaseComponent {
 
     public HomePage clickLogoutGoToHomePage(){
         logger.info("Action: Clicking Logout and returning to Home Page");
-        waitAndClickOnElement(logoutButton);
+        wait.waitAndClickOnElement(logoutButton);
         return new HomePage(driver);
     }
 

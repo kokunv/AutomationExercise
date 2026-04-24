@@ -87,7 +87,7 @@ public class SignUpPage extends BasePage {
 
     public void submitCreateAccount() {
         logger.info("Step: Submitting 'Create Account' form");
-        scrollToElementJs(createAccountButton);
+        actions.scrollToElementJs(createAccountButton);
         createAccountButton.click();
     }
 
@@ -99,9 +99,9 @@ public class SignUpPage extends BasePage {
         }
 
         logger.info("Action: Selecting birthday: {} - {} - {}", data.getDay(), data.getMonth(), data.getYear());
-        selectByVisibleText(dayOfBirthdaySelect, data.getDay());
-        selectByVisibleText(monthsOfBirthdaySelect, data.getMonth());
-        selectByVisibleText(yearOfBirthdaySelect, data.getYear());
+        actions.selectByVisibleText(dayOfBirthdaySelect, data.getDay());
+        actions.selectByVisibleText(monthsOfBirthdaySelect, data.getMonth());
+        actions.selectByVisibleText(yearOfBirthdaySelect, data.getYear());
     }
 
     public void selectOptionalGender(ISignUp data) {
@@ -130,7 +130,7 @@ public class SignUpPage extends BasePage {
         }
 
         logger.info("Action: Selecting country: {}", data.getCountry());
-        selectByVisibleText(countrySelect, data.getCountry());
+        actions.selectByVisibleText(countrySelect, data.getCountry());
     }
 
     public void fillFormSignUp(ISignUp data) {
