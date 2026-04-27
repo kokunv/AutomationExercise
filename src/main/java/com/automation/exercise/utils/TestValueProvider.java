@@ -4,6 +4,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
@@ -27,17 +28,23 @@ public class TestValueProvider {
         loadProperties(fileName);
     }
 
-    private void loadProperties(String path){
-
-       try(InputStream input = Thread.currentThread().getContextClassLoader().getResourceAsStream(path)){
-           if (input == null) {
-               throw new RuntimeException("Properties file not found: " + path);
-           }
-           properties.load(input);
-       } catch (IOException e) {
-           logger.error("Failed to read properties file: {}. Falling back to system variables.", path);
-           throw new RuntimeException("File can't read data properties ",e);
-       }
+    private void loadProperties(String path) {
+        try (InputStream input = TestValueProvider.class.getClassLoader().getResourceAsStream(path)) {
+            if (input == null) {
+                try (InputStream fileInput = new FileInputStream(path)) {
+                    properties.load(fileInput);
+                    logger.info("Properties loaded from file system: {}", path);
+                    return;
+                } catch (FileNotFoundException e) {
+                    throw new RuntimeException("Properties file not found neither in resources nor in file system: " + path);
+                }
+            }
+            properties.load(input);
+            logger.info("Properties loaded from resources: {}", path);
+        } catch (IOException e) {
+            logger.error("Failed to read properties file: {}", path);
+            throw new RuntimeException("File can't read data properties ", e);
+        }
     }
 
     public static TestValueProvider get(){

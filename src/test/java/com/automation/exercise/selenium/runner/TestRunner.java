@@ -26,9 +26,10 @@ public class TestRunner {
     }
 
     @AfterMethod(alwaysRun = true)
-    public void afterEach(){
-
-        softAssert.assertAll();
+    public void afterEach() {
+        if (softAssert != null) {
+            softAssert.assertAll();
+        }
         DriverManager.closeDriver();
 
     }
