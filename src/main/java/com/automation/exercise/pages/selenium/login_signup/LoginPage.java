@@ -64,7 +64,7 @@ public class LoginPage extends BasePage {
 
     public void inputEmailInLogin(String email) {
         logger.info("Action: Entering login email: {}", email);
-        wait.waitAndClickOnElement(emailLoginInput);
+        actions.clickDynamicElement(emailLoginInput);
         emailLoginInput.clear();
         emailLoginInput.sendKeys(email);
     }
