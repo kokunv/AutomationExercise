@@ -5,6 +5,7 @@ import org.apache.logging.log4j.Logger;
 
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.Properties;
 
 public class TestValueProvider {
@@ -12,7 +13,7 @@ public class TestValueProvider {
     private static volatile TestValueProvider instance;
     Properties properties;
     protected final Logger logger = LogManager.getLogger(this.getClass());
-    private static final String PATH_TO_DATA_PROPERTIES = "src/test/resources/data/data.properties";
+    private static final String PATH_TO_DATA_PROPERTIES = "data/data.properties";
 
 
     private TestValueProvider() {
@@ -22,14 +23,19 @@ public class TestValueProvider {
 
         String env = System.getProperty("env", "qa");
         logger.info("Loading properties for environment: {}", env);
-        String fileName = String.format("src/test/resources/config/%s.properties", env);
+        String fileName = String.format("config/%s.properties", env);
         loadProperties(fileName);
     }
 
     private void loadProperties(String path){
 
-       try(FileInputStream fileInputStream = new FileInputStream(path)){
-           properties.load(fileInputStream);
+       try(InputStream input = getClass()
+               .getClassLoader()
+               .getResourceAsStream(path)){
+           if (input == null) {
+               throw new RuntimeException("Properties file not found: " + path);
+           }
+           properties.load(input);
        } catch (IOException e) {
            logger.error("Failed to read properties file: {}. Falling back to system variables.", path);
            throw new RuntimeException("File can't read data properties ",e);
