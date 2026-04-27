@@ -71,7 +71,7 @@ public class LoginPage extends BasePage {
 
     public void inputPasswordInLogin(String password) {
         logger.info("Action: Entering login password");
-        wait.waitAndClickOnElement(passwordLoginInput);
+        actions.clickDynamicElement(passwordLoginInput);
         passwordLoginInput.clear();
         passwordLoginInput.sendKeys(password);
     }

@@ -27,7 +27,7 @@ public class HeaderComponent extends BaseComponent {
     @FindBy(xpath = ".//a[contains(text(),'Cart')]")
     private WebElement cartLink;
 
-    @FindBy(xpath = ".//a[contains(text(),' Signup / Login')]")
+    @FindBy(xpath = ".//a[contains(normalize-space(), 'Signup / Login')]")
     private WebElement loginLink;
 
     @FindBy(xpath = ".//a[contains(text(),'Contact us')]")
