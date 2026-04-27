@@ -29,9 +29,7 @@ public class TestValueProvider {
 
     private void loadProperties(String path){
 
-       try(InputStream input = getClass()
-               .getClassLoader()
-               .getResourceAsStream(path)){
+       try(InputStream input = Thread.currentThread().getContextClassLoader().getResourceAsStream(path)){
            if (input == null) {
                throw new RuntimeException("Properties file not found: " + path);
            }
