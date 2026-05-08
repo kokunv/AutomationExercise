@@ -49,11 +49,13 @@ public class LoginPage extends BasePage {
 
     public boolean isSignUpTextVisible() {
         logger.info("Verifying visibility of SignUp title");
+        wait.waitUntilElementIsVisible(signUpTitle);
         return signUpTitle.isDisplayed();
     }
 
     public boolean isLoginTextVisible() {
         logger.info("Verifying visibility of Login title");
+        wait.waitUntilElementIsVisible(loginTitle);
         return loginTitle.isDisplayed();
     }
 

@@ -50,11 +50,11 @@ public class LoginSelenideTests extends BaseSelenideTest {
     public void loginWithIncorrectEmail(String email, String password, String message) {
 
         loginPage.openPage()
-                 .login(email, password);
+                .login(email, password);
 
-         loginPage.shouldBeOnLoginPage();
-         assertTrue(loginPage.getEmailValidationMessage().contains(message),
-                 "Expected validation message was not displayed");
+        loginPage.shouldBeOnLoginPage();
+        assertTrue(loginPage.getEmailValidationMessage().contains(message),
+                "Expected validation message was not displayed");
     }
 
     @Test(dataProvider = "incorrectPasswordForLogin")

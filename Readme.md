@@ -58,9 +58,14 @@ src
 * Via IDE (IntelliJ IDEA)
 *   Right-click on src/test/java and select Run 'All Tests'.
 
+
+
 * Via Maven Terminal
 *    mvn clean test
 
+
   Run with parameters:
 
-   mvn clean test -Dbrowser=chrome -Dsuite=smoke -Denv=qa
+    mvn clean test -Pdev -Dsuite.name=smokeTests.xml
+    mvn clean test -Pqa -Dsuite.name=regressionTests.xml
+

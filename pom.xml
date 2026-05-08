@@ -20,7 +20,7 @@
         <maven.surefire.version>3.2.2</maven.surefire.version>
         <allure.version>2.24.0</allure.version>
         <log4j.version>2.24.1</log4j.version>
-        <aspectj.version>1.9.22.1</aspectj.version>
+        <aspectj.version>1.9.25.1</aspectj.version>
         <suites.path>src/test/resources/testng_suits/</suites.path>
         <suite.name>allTests.xml</suite.name>
     </properties>

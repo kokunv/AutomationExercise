@@ -137,6 +137,7 @@ public class SignUpPage extends BasePage {
 
         logger.info("Action: Filling in the Sign Up form for user: {} {}", data.getFirstName(), data.getLastName());
 
+        wait.waitUntilElementIsClickable(passwordInput);
         passwordInput.sendKeys(data.getPassword());
 
         firstnameInput.sendKeys(data.getFirstName());
