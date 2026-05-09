@@ -1,14 +1,14 @@
 package com.automation.exercise.selenium.tests;
 
-import com.automation.exercise.components.header.HeaderLoggedUserComponent;
-import com.automation.exercise.data.genertor.EmailGenerator;
-import com.automation.exercise.data.signup.ISignUp;
-import com.automation.exercise.data.signup.SignUpRepository;
-import com.automation.exercise.pages.selenium.account.CreatedAccountPage;
-import com.automation.exercise.pages.selenium.account.DeletedAccountPage;
-import com.automation.exercise.pages.selenium.home.HomePage;
-import com.automation.exercise.pages.selenium.login_signup.LoginPage;
-import com.automation.exercise.pages.selenium.login_signup.SignUpPage;
+import com.automation.exercise.ui.components.header.HeaderLoggedUserComponent;
+import com.automation.exercise.ui.data.genertor.EmailGenerator;
+import com.automation.exercise.ui.data.signup.ISignUp;
+import com.automation.exercise.ui.data.signup.SignUpRepository;
+import com.automation.exercise.ui.pages.selenium.account.CreatedAccountPage;
+import com.automation.exercise.ui.pages.selenium.account.DeletedAccountPage;
+import com.automation.exercise.ui.pages.selenium.home.HomePage;
+import com.automation.exercise.ui.pages.selenium.login_signup.LoginPage;
+import com.automation.exercise.ui.pages.selenium.login_signup.SignUpPage;
 import com.automation.exercise.selenium.runner.TestRunner;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -52,28 +52,28 @@ public class SignUpTest extends TestRunner {
         softAssert.assertTrue(homePage.isHomePageLoaded(),
                 "Home page is not loaded");
 
-        logger.info("Step: go to login and check sign up text visible.");
+        logger.info("Steps: go to login and check sign up text visible.");
         LoginPage loginPage = homePage.getHeader().goToLoginPage();
         softAssert.assertTrue(loginPage.isSignUpTextVisible(),
                 "'New User Signup!' is not visible");
 
-        logger.info("Step: enter user name and email and check account info title visible.");
+        logger.info("Steps: enter user name and email and check account info title visible.");
         SignUpPage signUpPage = loginPage.signUp(name, email);
         softAssert.assertTrue(signUpPage.isAccountInfoTitleVisible(),
                 "'ENTER ACCOUNT INFORMATION' is not visible");
 
-        logger.info("Step: fill form for sign in and check message is visible.");
+        logger.info("Steps: fill form for sign in and check message is visible.");
         CreatedAccountPage createdAccountPage = signUpPage.fillFormAndCreateAccount(user);
         softAssert.assertTrue(createdAccountPage.createdAccountMessageIsVisible(),
                 "'ACCOUNT CREATED!' is not visible");
 
-        logger.info("Step: go to home and check username");
+        logger.info("Steps: go to home and check username");
         createdAccountPage.continueToHomePage();
         HeaderLoggedUserComponent headerLoggedUserComponent = createdAccountPage.getLoggedHeader();
         softAssert.assertTrue(headerLoggedUserComponent.isUserLoggedName(name),
                 "'Logged in as username' is not visible");
 
-        logger.info("Step: delete account and check that deleted.");
+        logger.info("Steps: delete account and check that deleted.");
         DeletedAccountPage deletedAccountPage = headerLoggedUserComponent.deleteAccount();
         softAssert.assertTrue(deletedAccountPage.isAccountDeleteMessageVisible(),
                 "'ACCOUNT DELETED!' is not visible");
@@ -88,7 +88,7 @@ public class SignUpTest extends TestRunner {
 
         logger.info("Test: Verify registration prevention with existing email: {}", email);
 
-        logger.info("Step: registration user.");
+        logger.info("Steps: registration user.");
         HomePage homePage = loadApplication();
         homePage.getHeader()
                 .goToLoginPage()
@@ -98,14 +98,14 @@ public class SignUpTest extends TestRunner {
                 .getLoggedHeader()
                 .clickLogoutGoToHomePage();
 
-        logger.info("Step: Go to login page.");
+        logger.info("Steps: Go to login page.");
         LoginPage loginPage = homePage.getHeader().goToLoginPage();
 
-        logger.info("Step: sign uo with the same email.");
+        logger.info("Steps: sign uo with the same email.");
         loginPage.signUpWithIncorrectData(name,email);
 
         String actualError = loginPage.getAccountExistMessage().getText();
-        logger.info("Step: Check error message {}",actualError);
+        logger.info("Steps: Check error message {}",actualError);
         softAssert.assertEquals(actualError,
                 EMAIL_ALREADY_EXISTS_ERROR,
                 "Incorrect error message");
@@ -132,7 +132,7 @@ public class SignUpTest extends TestRunner {
                 .fillFormAndClickSubmit(user);
 
         String validationMsg = signUpPage.getPasswordValidationMessage();
-        logger.info("Step: Checking validation message '{}'", validationMsg);
+        logger.info("Steps: Checking validation message '{}'", validationMsg);
         softAssert.assertTrue(signUpPage.isAccountInfoTitleVisible(),
                 "User can't register with empty field.");
         softAssert.assertFalse(validationMsg.isEmpty(),

@@ -1,9 +1,9 @@
 package com.automation.exercise.selenium.runner;
 
-import com.automation.exercise.driver.DriverManager;
-import com.automation.exercise.pages.selenium.home.HomePage;
+import com.automation.exercise.ui.driver.DriverManager;
+import com.automation.exercise.ui.pages.selenium.home.HomePage;
 import com.automation.exercise.selenium.listener.TestListener;
-import com.automation.exercise.utils.TestValueProvider;
+import com.automation.exercise.ui.utils.TestValueProvider;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;

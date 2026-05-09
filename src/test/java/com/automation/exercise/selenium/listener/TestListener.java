@@ -1,6 +1,6 @@
 package com.automation.exercise.selenium.listener;
 
-import com.automation.exercise.utils.ScreenshotUtil;
+import com.automation.exercise.ui.utils.ScreenshotUtil;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.testng.ITestListener;

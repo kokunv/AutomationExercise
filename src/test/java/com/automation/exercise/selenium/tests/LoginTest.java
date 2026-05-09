@@ -1,12 +1,12 @@
 package com.automation.exercise.selenium.tests;
 
-import com.automation.exercise.data.genertor.EmailGenerator;
-import com.automation.exercise.data.signup.ISignUp;
-import com.automation.exercise.data.signup.SignUpRepository;
-import com.automation.exercise.data.user.UserCredentials;
-import com.automation.exercise.pages.selenium.account.DeletedAccountPage;
-import com.automation.exercise.pages.selenium.home.HomePage;
-import com.automation.exercise.pages.selenium.login_signup.LoginPage;
+import com.automation.exercise.ui.data.genertor.EmailGenerator;
+import com.automation.exercise.ui.data.signup.ISignUp;
+import com.automation.exercise.ui.data.signup.SignUpRepository;
+import com.automation.exercise.ui.data.user.UserCredentials;
+import com.automation.exercise.ui.pages.selenium.account.DeletedAccountPage;
+import com.automation.exercise.ui.pages.selenium.home.HomePage;
+import com.automation.exercise.ui.pages.selenium.login_signup.LoginPage;
 import com.automation.exercise.selenium.runner.TestRunner;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;

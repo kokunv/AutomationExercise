@@ -1,7 +1,7 @@
 package com.automation.exercise.selenide;
 
-import com.automation.exercise.config.SelenideConfig;
-import com.automation.exercise.pages.selenide.LoginPageSelenide;
+import com.automation.exercise.ui.config.SelenideConfig;
+import com.automation.exercise.ui.pages.selenide.LoginPageSelenide;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 

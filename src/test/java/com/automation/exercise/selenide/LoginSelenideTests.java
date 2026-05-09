@@ -1,6 +1,6 @@
 package com.automation.exercise.selenide;
 
-import com.automation.exercise.pages.selenide.HomePageSelenide;
+import com.automation.exercise.ui.pages.selenide.HomePageSelenide;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
