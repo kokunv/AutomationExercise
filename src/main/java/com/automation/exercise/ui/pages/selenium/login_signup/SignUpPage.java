@@ -82,6 +82,7 @@ public class SignUpPage extends BasePage {
 
     public boolean isAccountInfoTitleVisible() {
         logger.info("Checking visibility of 'Enter Account Information' title");
+        wait.waitUntilElementIsVisible(accountInformationTitle);
         return accountInformationTitle.isDisplayed();
     }
 

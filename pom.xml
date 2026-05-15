@@ -22,6 +22,7 @@
         <aspectj.version>1.9.25.1</aspectj.version>
         <suites.path>src/test/resources/testng_suits/</suites.path>
         <suite.name>allTests.xml</suite.name>
+        <cucumber.version>7.34.3</cucumber.version>
     </properties>
 
 
@@ -47,6 +48,24 @@
             <groupId>com.codeborne</groupId>
             <artifactId>selenide</artifactId>
             <version>${selenide.version}</version>
+        </dependency>
+
+        <!-- Cucumber -->
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-java</artifactId>
+            <version>${cucumber.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-testng</artifactId>
+            <version>${cucumber.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-picocontainer</artifactId>
+            <version>${cucumber.version}</version>
         </dependency>
 
         <!-- WebDriver Manager  -->
